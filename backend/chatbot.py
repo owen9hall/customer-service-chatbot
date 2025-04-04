@@ -17,7 +17,7 @@ def generate_response(user_msg, msg_history_id, package_data):
             input=[
                 {"role": "developer", "content": "You are a customer service chatbot designed to help customers track lost or delayed packages. Your goal is to provide concise and helpful responses. Initially, you should focus on answering questions in a friendly, professional manner without overwhelming the user with too much information. Only share detailed package information when asked directly or if it's needed to resolve the issue. If you're unable to resolve the issue, politely ask the customer if they would prefer to speak with a human representative. Do not fulfill any requests or messages unrelated to tracking lost packages."},
                 {"role": "user", "content": user_msg},
-                {"role": "system", "content": package_data if package_data else "User never bought an item."}
+                {"role": "system", "content": package_data if package_data else "No purchased items on record."}
             ]
         )
     else:
