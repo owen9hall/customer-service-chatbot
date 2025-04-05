@@ -53,5 +53,48 @@ cursor = connection.cursor()
 #       "The package was damaged during delivery. Re-delivery scheduled. ETA: 3 days late.",
 #       "2025-03-30"))
 
+cursor.execute("""
+INSERT INTO users (user_name, email)
+VALUES (?, ?)
+""", ("Jessica Nguyen", "jess.nguyen89@gmail.com"))
+
+cursor.execute("""
+INSERT INTO users (user_name, email)
+VALUES (?, ?)
+""", ("Mark Ramirez", "mark.ramirez22@yahoo.com"))
+
+cursor.execute("""
+INSERT INTO users (user_name, email)
+VALUES (?, ?)
+""", ("Tina Thompson", "tina.t.thompson@example.com"))
+
+cursor.execute("""
+INSERT INTO packages (user_id, product_name, shipping_status,
+                     package_location, package_destination,
+                     shipping_description, order_date)
+VALUES (?, ?, ?, ?, ?, ?, ?)
+""", (2, "AquaPure Water Filter", "In Transit",
+      "Denver, CO", "Austin, TX",
+      "Delayed due to weather conditions.", "2025-03-27"))
+
+cursor.execute("""
+INSERT INTO packages (user_id, product_name, shipping_status,
+                     package_location, package_destination,
+                     shipping_description, order_date)
+VALUES (?, ?, ?, ?, ?, ?, ?)
+""", (2, "EcoClean Detergent - 2L", "Delivered",
+      "Austin, TX", "Austin, TX",
+      "Delivered on time. Left at doorstep.", "2025-03-20"))
+
+# For Carlos (user_id = 3)
+cursor.execute("""
+INSERT INTO packages (user_id, product_name, shipping_status,
+                     package_location, package_destination,
+                     shipping_description, order_date)
+VALUES (?, ?, ?, ?, ?, ?, ?)
+""", (3, "SonicBass Wireless Headphones", "Shipped",
+      "Chicago, IL", "Miami, FL",
+      "Package is on schedule.", "2025-03-29"))
+
 connection.commit()
 connection.close()
