@@ -3,15 +3,6 @@ import axios from 'axios';
 
 const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
-   const handleHello = () => {
-      const botMessage = createChatBotMessage('Hello, is there anything I can help you with?');
-
-      setState((prev) => ({
-         ...prev,
-         messages: [...prev.messages, botMessage],
-      }));
-   }
-
    const getResponse = async (userMessage, userID) => {
       // default message if not overridden
       let botMessage = createChatBotMessage('I apologize, it seems I have encountered an error. If you would like to speak to a human representative please contact us at packageCompany@company.com or call (123)456-7890.');

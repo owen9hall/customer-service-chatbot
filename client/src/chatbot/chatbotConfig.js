@@ -1,16 +1,17 @@
 import { createChatBotMessage } from 'react-chatbot-kit';
+import '../styling/chatbot.css';
 
-const botName = 'PackagePal';
+const botName = 'BoxBot';
 
 const config = {
    initialMessages: [createChatBotMessage(`Hello, I'm ${botName}! How may I assist you today?`)],
    botName: botName,
    customStyles: {
       botMessageBox: {
-         backgroundColor: '#a8bdad',
+         backgroundColor: '#f09d51ff',
       },
       chatButton: {
-         backgroundColor: '#78adcf',
+         backgroundColor: '#E0DFD5',
       },
    },
 };

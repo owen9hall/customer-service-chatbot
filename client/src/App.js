@@ -1,12 +1,11 @@
-import './App.css';
-import Chatbot from 'react-chatbot-kit'
+import './styling/App.css';
 import 'react-chatbot-kit/build/main.css'
 
-import config from "./chatbot/chatbotConfig";
-import MessageParser from "./chatbot/MessageParser";
-import ActionProvider from "./chatbot/ActionProvider";
+import Home from "./pages/Home";
 import { useEffect } from 'react';
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.css'
+import './styling/styles.css'
 
 function App() {
 
@@ -22,13 +21,7 @@ function App() {
 
   return (
     <>
-      <Chatbot
-        config={config}
-        messageParser={MessageParser}
-        actionProvider={ActionProvider}
-        headerText='Chatbot'
-        placeholderText='Input placeholder'
-      />
+      <Home />
     </>
   );
 }
