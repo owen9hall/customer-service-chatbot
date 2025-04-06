@@ -38,9 +38,10 @@ git clone https://github.com/owen9hall/customer-service-chatbot.git
   ```
 
 3. **Frontend Server Setup**:
+- Open a second terminal
 - Navigate to the client directory:
   ```
-  cd ../client
+  cd customer-service-chatbot/client
   ```
 - Install packages:
   ```

@@ -4,7 +4,7 @@ import os
 
 
 # Get .env keys
-load_dotenv()
+load_dotenv("demo.env")
 api_key = os.getenv("OPENAI_KEY")
 client = OpenAI(api_key=api_key)
 MODEL = "gpt-4o-2024-08-06"
