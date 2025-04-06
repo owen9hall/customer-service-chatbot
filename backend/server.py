@@ -14,7 +14,7 @@ Session(app)
 CORS(app, supports_credentials=True) # allow requests from other origins (so frontend can make API calls)
 
 # access flask session key
-load_dotenv()
+load_dotenv("demo.env")
 app.secret_key = os.getenv("FLASK_SECRET_KEY")
 
 # retrieves and returns the package data string for a given user to send to the AI model for context.
