@@ -1,6 +1,9 @@
 import React from 'react';
 
+// Adapted from react-chatbot-kit library docs: https://fredrikoseberg.github.io/react-chatbot-kit-docs/docs/
+// parses user messages and does an action with it
 const MessageParser = ({ children, actions, userID }) => {
+  // no real parsing needed, just get a response from the AI model and display the new state 
   const parse = (message) => {
     actions.getResponse(message, userID);
   };

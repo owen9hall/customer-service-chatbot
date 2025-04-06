@@ -6,6 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css'
 
+// entry point for the application
+
+// create a router with paths to the landing page (user selection) and to the home page (chatbot)
 const router = createBrowserRouter([
   { path: "/", element: <App />},
   { path: "/home/:userID", element: <Home />},

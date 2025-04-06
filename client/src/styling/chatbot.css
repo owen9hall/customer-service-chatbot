@@ -1,3 +1,4 @@
+/* Overrides various chatbot CSS properties for customization */
 .react-chatbot-kit-chat-header {
    color: var(--pale-white);
    background-color: #353b3d;

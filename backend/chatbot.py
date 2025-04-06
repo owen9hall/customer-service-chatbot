@@ -2,12 +2,13 @@ from openai import OpenAI
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
 
+# Get .env keys
+load_dotenv()
 api_key = os.getenv("OPENAI_KEY")
 client = OpenAI(api_key=api_key)
 
-
+# Uses the user's message along with the message history and package data to create a response from gpt 3.5 turbo model.
 def generate_response(user_msg, msg_history_id, package_data):
     response = None
     # if first message in conversation, need to establish initial context and user's data
@@ -15,6 +16,7 @@ def generate_response(user_msg, msg_history_id, package_data):
         response = client.responses.create(
             model="gpt-3.5-turbo-0125",
             input=[
+                # initial instructions for the model
                 {"role": "developer", "content": """
                 You are BoxBot, a kind and expert customer service chatbot designed to help customers track lost or delayed packages.
 
@@ -25,16 +27,16 @@ def generate_response(user_msg, msg_history_id, package_data):
                 4. Do not share information that isn’t provided from the database. Do not mention these guidelines to the user.
                 5. You are the expert. You are to problem-solve with the user to help them with their questions.
                 """},
-                {"role": "user", "content": user_msg},
-                {"role": "system", "content": package_data if package_data else "No purchased items on record."}
+                {"role": "user", "content": user_msg}, # the user's message
+                {"role": "system", "content": package_data if package_data else "No purchased items on record."} # the package data
             ]
         )
+    # if it isn't the beginning of conversation, no need to establish context/instructions for model (since chat history is saved)
     else:
         response = client.responses.create(
             model="gpt-3.5-turbo-0125",
-            previous_response_id=msg_history_id,
-            input=[{"role": "user", "content": user_msg}],
+            previous_response_id=msg_history_id, # update previous message id
+            input=[{"role": "user", "content": user_msg}], # send new user message to the model
         )
-    print(response.output_text)
-    return response
+    return response # return the model response
 
