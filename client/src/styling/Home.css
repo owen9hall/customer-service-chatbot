@@ -1,5 +1,7 @@
 .home-container {
-   container: container-fluid;
+   display: flex;
    height: 100vh;
    background-color: rgb(41, 45, 47);
+   align-items: center;
+   justify-content: center;
 }

@@ -50,7 +50,7 @@ def chat():
    if not session["msg_history_id"]:
       session["msg_history_id"] = None
       package_data = get_package_data(user_id)
-      print(f"Package data: {package_data}")
+      print(f"Package data for this specific user: {package_data}")
 
    # generate a response from the chatbot
    response = generate_response(user_msg, session["msg_history_id"], package_data)
@@ -75,6 +75,20 @@ def clear_session():
 
    session["msg_history_id"] = None
    return jsonify({"message": "Session cleared."})
+
+@app.route("/users", methods=["GET"])
+def users():
+   connection = sqlite3.connect('chatbot_database.db')
+   cursor = connection.cursor()
+   
+   cursor.execute("""
+                  SELECT user_name, user_id FROM users
+                  """)
+   users = cursor.fetchall()
+
+   cursor.close()
+   connection.close()
+   return users
 
 if __name__ == "__main__":
    app.run(debug=True)

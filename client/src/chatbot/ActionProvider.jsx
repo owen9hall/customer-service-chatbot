@@ -5,7 +5,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
    const getResponse = async (userMessage, userID) => {
       // default message if not overridden
-      let botMessage = createChatBotMessage('I apologize, it seems I have encountered an error. If you would like to speak to a human representative please contact us at packageCompany@company.com or call (123)456-7890.');
+      let botMessage = createChatBotMessage('I apologize, it seems I have encountered an error. If you would like to speak to a human agent please contact us at packageSupport@company.com or call (123)456-7890.');
       try {
          const data = {
             message: userMessage,
