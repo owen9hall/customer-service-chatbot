@@ -23,7 +23,7 @@ def get_package_data(user_id):
    connection = sqlite3.connect('chatbot_database.db')
    cursor = connection.cursor()
    
-   # access the users name and email along with package information where the user ID is that of current user
+   # access the users and package information where the user ID is that of current user
    cursor.execute("""
                   SELECT * FROM packages INNER JOIN users
                   ON packages.user_id = users.user_id

@@ -9,7 +9,7 @@ function App() {
   return (
    <div className="app-container" >
       <UserList />
-      <p>Select a user to test the chatbot with.</p>
+      <p>Select a sample user to test the chatbot with.</p>
    </div>
  );
 }
