@@ -1,4 +1,5 @@
 venv/
 .env
+demo.env
 __pycache__
 flask_session/

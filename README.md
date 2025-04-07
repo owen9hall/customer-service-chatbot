@@ -32,6 +32,18 @@ git clone https://github.com/owen9hall/customer-service-chatbot.git
   ```
   pip install -r requirements.txt
   ```
+
+- Add your API keys:
+  - Locate the file demo.env (in the backend folder)
+  - Add the API keys in the file in the labeled locations
+  ```
+  OPENAI_KEY=your-openai-key-here
+  FLASK_SECRET_KEY="your-flask-secret-key-here"
+  ```
+    - Where to get keys (If not separately provided with them):
+      - OpenAI API key: https://platform.openai.com/api-keys
+      - Flask Secret key: Any randomly generated string (32 hexadecimal characters recommended)
+
 - Start the Flask server:
   ```
   python server.py
